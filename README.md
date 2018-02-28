@@ -1,7 +1,9 @@
 # Handpose-WonderSeen-Net
 DataBase: RHD_published_v2
-![test](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test.png)
 
-![image](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test1.png)
+# demo-result
+![result1](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test.png)
 
-![image](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test2.png)
+![result2](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test1.png)
+
+![result3](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test2.png)
