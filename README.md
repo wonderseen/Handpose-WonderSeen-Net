@@ -17,4 +17,6 @@ Hand Gesture Recognition Based on Shape Parameters.
 
 Densely Connected Convolutional Networks.
 
-Convolutional Networks for Biomedical Image Segmentation.ImageNet Classification with Deep Convolutional Neural Networks.
+Convolutional Networks for Biomedical Image Segmentation.
+
+ImageNet Classification with Deep Convolutional Neural Networks.
