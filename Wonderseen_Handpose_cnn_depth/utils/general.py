@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+#  ColorHandPose3DNetwork - Network for estimating 3D Hand Pose from a single RGB Image
+#  Copyright (C) 2017  Christian Zimmermann
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function, unicode_literals
 import tensorflow as tf
@@ -6,47 +20,22 @@ from tensorflow.python import pywrap_tensorflow
 import numpy as np
 import math
 
-'''
-def iget_no_of_instance(ins_obj): # 对类变量进行操作
-    return ins_obj.__class__.no_inst
-class Kls(object):
-    no_inst = 0
-    def __init__(self):
-        #self.no_inst = self.no_inst + 1 # 对该实例化进行加法
-        Kls.no_inst = Kls.no_inst + 1 # 对类属性进行根本加法
-# 下面的 classmethod可以让帮助上面在类外的函数，写到类中来。classmethod是只能通过类进行的函数，而不能通过实例进行的函数
-#class Kls(object):
-#    no_inst = 0
-#    def __init__(self):
-#        Kls.no_inst = Kls.no_inst + 1
-#    @classmethod
-#    def get_no_of_instance(cls_obj):
-#        return cls_obj.no_inst
-
-ik1 = Kls() # 2
-ik2 = Kls() # 2
-print (iget_no_of_instance(ik1))
-print(ik1.no_inst)
-'''
 class NetworkOps(object):
-    """ 包括了网络里经常要运用到的操作 """
     neg_slope_of_relu = 0.01
 
     @classmethod
-    def leaky_relu(cls, tensor, name='relu'):# leaky_relu : f(x)=max(0,x)+negative_slope×min(0,x), negative_slope是一个很小的数
+    def leaky_relu(cls, tensor, name='relu'):
         out_tensor = tf.maximum(tensor, cls.neg_slope_of_relu*tensor, name=name)
         return out_tensor
 
     @classmethod
     def conv(cls, in_tensor, layer_name, kernel_size, stride, out_chan, trainable=True):
-        with tf.variable_scope(layer_name): # 通过网络名称检索到该空间子图
+        with tf.variable_scope(layer_name):
             in_size = in_tensor.get_shape().as_list()
 
-            strides = [1, stride, stride, 1] # 步长
+            strides = [1, stride, stride, 1]
             kernel_shape = [kernel_size, kernel_size, in_size[3], out_chan] #
-            #print('in_size',in_size)
-            #print('kernel_shape',kernel_shape)
-            #print('strides',strides)
+
             # conv
             kernel = tf.get_variable('weights', kernel_shape, tf.float32,
                                      tf.contrib.layers.xavier_initializer_conv2d(), trainable=trainable, collections=['wd', 'variables', 'filters'])
@@ -56,7 +45,7 @@ class NetworkOps(object):
             biases = tf.get_variable('biases', [kernel_shape[3]], tf.float32,
                                      tf.constant_initializer(0.0001), trainable=trainable, collections=['wd', 'variables', 'biases'])
             out_tensor = tf.nn.bias_add(tmp_result, biases, name='out')
-            #print('out_tensor',out_tensor)
+            
             return out_tensor
 
     @classmethod
@@ -66,7 +55,7 @@ class NetworkOps(object):
         return out_tensor
 
     @classmethod
-    def max_pool(cls, bottom, name='pool'):# 池化都是二分之一池化
+    def max_pool(cls, bottom, name='pool'):
         pooled = tf.nn.max_pool(bottom, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1],
                                 padding='VALID', name=name)
         return pooled
