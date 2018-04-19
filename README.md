@@ -3,6 +3,8 @@
 1. DATABASE: RHD_published_v2.
 2. DATABASE INFO: RGBD, four channels, pix-level label.
 3. CODE: To be updated in 2 months.
+4. ADDITION: This script isn't the final version of my work of gesture recognization. For that Code Management requires a lot of work, the script 'Wonderseen_HandPose_cnn_depth.py' is provided merely as reference to show the main thoughts of the process.
+
 
 # Network-Result
 
