@@ -15,10 +15,10 @@
 ![image](https://github.com/wonderseen/Handpose-WonderSeen-Net/tree/master/result/test2.png)
 
 # Reference
-1. Hand Gesture Recognition Based on Shape Parameters.
+[1] Hand Gesture Recognition Based on Shape Parameters.
 
-2. Densely Connected Convolutional Networks.
+[2] Densely Connected Convolutional Networks.
 
-3. Convolutional Networks for Biomedical Image Segmentation.
+[3] Convolutional Networks for Biomedical Image Segmentation.
 
-4. ImageNet Classification with Deep Convolutional Neural Networks.
+[4] ImageNet Classification with Deep Convolutional Neural Networks.
