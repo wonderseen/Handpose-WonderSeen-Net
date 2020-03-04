@@ -1,4 +1,4 @@
-Though recently I have not much time for this repository maintainance possess, But fortunately (maybe you could get more details of this project) I wrote ![a blog (in Chinese)](https://blog.csdn.net/wonderseen/article/details/78341932) about the handpose investigation (traditional style and DL style) completed during this project and intermittently answered relevant questions raised by people who were interested in the comments section of the blog.
+Though recently I have not much time for this repository maintainance possess, But fortunately (maybe you could get more details of this project) I wrote [a blog (in Chinese)](https://blog.csdn.net/wonderseen/article/details/78341932) about the handpose investigation (traditional style and DL style) completed during this project and intermittently answered relevant questions raised by people who were interested in the comments section of the blog.
 # 
 
 
